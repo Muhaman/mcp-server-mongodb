@@ -85,7 +85,7 @@ Unit tests cover pipeline/filter validation, limit enforcement, schema inference
 
 ## Limitations & next steps
 
-- Single database per server instance; no cross-database `$lookup` (cross-database references are rejected unless the collection name is allowlisted).
+- Single database per server instance; `$lookup` with a cross-database `{db, coll}` reference is rejected.
 - Stdio transport only; no Streamable HTTP or auth layer.
 - Aggregation stages that expose server internals (for example `$collStats`) are not blocked beyond the allowlist; rely on a least-privilege database user.
 - Results are not paginated; the 100-document cap is fixed.

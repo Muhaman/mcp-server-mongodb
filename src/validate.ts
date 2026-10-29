@@ -14,8 +14,8 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
 function checkCollectionStage(operator: string, spec: unknown, allowed?: string[]): string | undefined {
   const ref = typeof spec === 'string' ? spec : isPlainObject(spec) ? (spec.from ?? spec.coll) : undefined;
   if (ref === undefined) return undefined;
-  const name = typeof ref === 'string' ? ref : isPlainObject(ref) ? ref.coll : undefined;
-  if (typeof name !== 'string') return `${operator} has an invalid collection reference`;
+  if (typeof ref !== 'string') return `${operator} must reference a collection by name in the current database`;
+  const name = ref;
   if (name.startsWith('system.') || (allowed && !allowed.includes(name))) {
     return `${operator} targets a collection that is not available: ${name}`;
   }

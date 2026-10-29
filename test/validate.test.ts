@@ -119,3 +119,13 @@ describe('validateQueryDocument', () => {
     expect(validateQueryDocument([], 'filter').ok).toBe(false);
   });
 });
+
+describe('cross-database references', () => {
+  it('rejects a $lookup that names another database', () => {
+    const result = validatePipeline(
+      [{ $lookup: { from: { db: 'other', coll: 'movies' }, pipeline: [], as: 'x' } }],
+      { allowedCollections: ['movies'] },
+    );
+    expect(result.ok).toBe(false);
+  });
+});
