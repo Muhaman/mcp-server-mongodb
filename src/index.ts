@@ -1,5 +1,5 @@
 import { StdioServerTransport } from '@modelcontextprotocol/server/stdio';
-import pino from 'pino';
+import { pino } from 'pino';
 import { connectDb } from './db.js';
 import { loadEnv } from './env.js';
 import { createServer } from './server.js';
