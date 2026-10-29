@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mongodb": {
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-server-mongodb/dist/index.js"],
+      "env": {
+        "MONGODB_URI": "mongodb://localhost:27017",
+        "MONGODB_DB": "sample",
+        "MCP_COLLECTION_ALLOWLIST": "movies,reviews"
+      }
+    }
+  }
+}

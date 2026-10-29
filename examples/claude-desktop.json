@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "mongodb": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "-e", "MONGODB_URI",
+        "-e", "MONGODB_DB",
+        "-e", "MCP_COLLECTION_ALLOWLIST",
+        "mcp-server-mongodb"
+      ],
+      "env": {
+        "MONGODB_URI": "mongodb://host.docker.internal:27017",
+        "MONGODB_DB": "sample",
+        "MCP_COLLECTION_ALLOWLIST": "movies,reviews"
+      }
+    }
+  }
+}
