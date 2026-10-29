@@ -37,7 +37,7 @@ Every tool body runs through `respond()`, which turns any failure (validation, a
 
 ```bash
 npm install
-cp .env.example .env   # set MONGODB_URI and MONGODB_DB
+# the server does not load .env: export the variables or set them in your MCP client config
 npm run build
 MONGODB_URI=mongodb://localhost:27017 MONGODB_DB=sample node dist/index.js
 ```
